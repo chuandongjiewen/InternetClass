@@ -53,6 +53,7 @@ public class UdpClientJFrame extends JFrame {
 				try {
 					while((receiveMsg = echoClient.receive()) != null){
 						textArea.append(receiveMsg + "\n");
+						System.out.println(receiveMsg);
 					}
 					int len = textArea.getText().length();
 					textArea.setCaretPosition(len);
@@ -71,6 +72,7 @@ public class UdpClientJFrame extends JFrame {
 		if (sendMsg != "") {
 			try {
 				echoClient.send(sendMsg);
+				textArea.append(sendMsg+"\n");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

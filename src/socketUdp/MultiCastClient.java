@@ -13,23 +13,25 @@ public class MultiCastClient {
 	InetAddress address = null;
 	
 	public MultiCastClient() throws IOException{
-		socket = new MulticastSocket();
+		socket = new MulticastSocket(port);
 		address = InetAddress.getByName(groupIP);
 		socket.joinGroup(address);
 	}
 	
 	public void send(String msg) throws IOException{
-		DatagramPacket packet = new DatagramPacket(new byte[1024], 1024, address, port);
-		packet.setData(msg.getBytes("GBK"));
+		byte[] buff = msg.getBytes("GBK");
+		DatagramPacket packet = new DatagramPacket(buff, buff.length, address, port);
 		socket.send(packet);
 	}
 	
 	public String receive() throws IOException{
-		DatagramPacket packet = new DatagramPacket(new byte[1024], 1024);
-		socket.receive(packet);
-		String msg = new String(packet.getData(),0, packet.getLength(),"GBK");
-		return msg;
-	}
+		  byte[] buff = new byte[1024];
+		  DatagramPacket packet = new DatagramPacket(buff, buff.length);
+		  socket.receive(packet);
+		  String msg = new String(packet.getData(),0,packet.getLength(), "GBK");
+		  msg = "["+packet.getAddress()+"]"+msg;
+		  return msg;
+	 }
 	
 	public void close() throws IOException{
 		socket.leaveGroup(address);
