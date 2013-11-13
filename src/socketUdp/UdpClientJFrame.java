@@ -33,7 +33,7 @@ public class UdpClientJFrame extends JFrame {
 	
 	private String sendMsg = "";
 	private String receiveMsg = "";
-	private MultiCastClient echoClient;
+	private EchoUDPClient echoClient;
 	
 	public UdpClientJFrame (){
 		initComponents();
@@ -43,8 +43,8 @@ public class UdpClientJFrame extends JFrame {
 	
 	private void startAcceptService(){
 		try {
-			echoClient = new MultiCastClient();
-		} catch (IOException e) {
+			echoClient = new EchoUDPClient();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		new Thread(){
