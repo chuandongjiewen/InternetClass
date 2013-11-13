@@ -1,12 +1,9 @@
 package CapturePackage;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -38,17 +35,9 @@ public class CaptureFrame extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CaptureFrame frame = new CaptureFrame();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
+		CaptureFrame frame = new CaptureFrame();
+		frame.setVisible(true);
 	}
 	
 	private void bindEvent(){
@@ -58,20 +47,22 @@ public class CaptureFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					NetworkInterface[] device = JpcapCaptor.getDeviceList();
-					jpcap = JpcapCaptor.openDevice(device[0], 1514, true, 60);
-					jpcap.setFilter("tcp", true);
-					
-					jpcapThread = new Thread(){
+//					jpcap = JpcapCaptor.openDevice(device[2], 1514, true, 60);
+//					jpcap.setFilter("tcp", true);
+					jpcap = JcaptureDialog.getJpcap(CaptureFrame.this);
+					System.out.println(device.length);
+					jpcapThread = new Thread(new Runnable() {
+						
 						public void run(){
 							while(jpcapThread != null){
 								jpcap.processPacket(1, handler);
 							}
 						}
-					};
+					});
 					
 					jpcapThread.setPriority(Thread.MIN_PRIORITY);
 					jpcapThread.start();
-				} catch (IOException e1) {
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -116,13 +107,13 @@ public class CaptureFrame extends JFrame {
 			@Override
 			public void receivePacket(Packet packet) {
 				String msg=packet.toString();
-				System.out.println(msg+"======");
+				
 	             if(msg.contains("202.116.192.92")){//只查看和某IP地址有关的.
-	                textArea.append(msg+"\n");
-	              try {
-	                String  submsg = new String(packet.data,0,packet.data.length,"utf-8");
-	                textArea.append("数据部分: \n"+submsg+"\n\n");
-	              } catch (IOException ex) { }
+	                 textArea.append(msg+"\n");
+					 try {
+					    String  submsg = new String(packet.data,0,packet.data.length,"utf-8");
+					    textArea.append("数据部分: \n"+submsg+"\n\n");
+					} catch (IOException ex) { }
 	             }
 			}
 		};
