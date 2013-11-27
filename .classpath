@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="lib" path="lib/jpcap.jar"/>
-	<classpathentry kind="lib" path="lib/swt.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="lib/jpcap.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/swt.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/android/windows/InternetClass/lib/mysqldriver.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
