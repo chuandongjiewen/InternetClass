@@ -83,7 +83,7 @@ public class JcaptureDialog extends javax.swing.JDialog implements ActionListene
                                 jPanel_west.add(CheckBox);
                                 FlowLayout CheckBoxLayout = new FlowLayout();
                                 CheckBoxLayout.setAlignOnBaseline(true);
-                                CheckBox.setText("/u662f/u5426/u8bbe/u7f6e/u4e3a/u6df7/u6742/u6a21/u5f0f");
+                                CheckBox.setText("是否设置为混杂模式");
                                 CheckBox.setLayout(null);
                          }
                          {
@@ -124,7 +124,7 @@ public class JcaptureDialog extends javax.swing.JDialog implements ActionListene
                                        FlowLayout userRadioButtonLayout = new FlowLayout();
                                        userRadioButtonLayout.setAlignOnBaseline(true);
                                        caplenPanel.add(wholeRadioButton);
-                                       wholeRadioButton.setText("/u6574/u4e2a/u6570/u636e/u62a5");
+                                       wholeRadioButton.setText("整个数据报");
                                        wholeRadioButton.setSelected(true);
 
                                        wholeRadioButton.addActionListener(this);
@@ -132,14 +132,14 @@ public class JcaptureDialog extends javax.swing.JDialog implements ActionListene
                                 {
                                        headRadioButton = new JRadioButton();
                                        caplenPanel.add(headRadioButton);
-                                       headRadioButton.setText("/u4ec5/u9996/u90e8");
+                                       headRadioButton.setText("仅首部");
 
                                        headRadioButton.addActionListener(this);
                                 }
                                 {
                                        userRadioButton = new JRadioButton();
                                        caplenPanel.add(userRadioButton);
-                                       userRadioButton.setText("/u5176/u4ed6/u90e8/u5206");
+                                       userRadioButton.setText("其他部分");
 
                                        userRadioButton.addActionListener(this);
                                 }
@@ -161,7 +161,7 @@ public class JcaptureDialog extends javax.swing.JDialog implements ActionListene
                                        buttonPanel.add(okButton);
                                        FlowLayout cancelButtonLayout = new FlowLayout();
                                        cancelButtonLayout.setAlignOnBaseline(true);
-                                       okButton.setText("/u786e/u5b9a");
+                                       okButton.setText("确定");
 
                                        okButton.setActionCommand("ok");
                                        okButton.addActionListener(this);
@@ -169,7 +169,7 @@ public class JcaptureDialog extends javax.swing.JDialog implements ActionListene
                                 {
                                        cancelButton = new JButton();
                                        buttonPanel.add(cancelButton);
-                                       cancelButton.setText("/u53d6/u6d88");
+                                       cancelButton.setText("取消");
 
                                        cancelButton.setActionCommand("cancel");
                                        cancelButton.addActionListener(this);

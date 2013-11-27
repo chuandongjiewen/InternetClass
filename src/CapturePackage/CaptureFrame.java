@@ -47,9 +47,9 @@ public class CaptureFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					NetworkInterface[] device = JpcapCaptor.getDeviceList();
-//					jpcap = JpcapCaptor.openDevice(device[2], 1514, true, 60);
-//					jpcap.setFilter("tcp", true);
-					jpcap = JcaptureDialog.getJpcap(CaptureFrame.this);
+					jpcap = JpcapCaptor.openDevice(device[1], 1514, true, 60);
+					jpcap.setFilter("tcp", true);
+//					jpcap = JcaptureDialog.getJpcap(CaptureFrame.this);
 					System.out.println(device.length);
 					jpcapThread = new Thread(new Runnable() {
 						
@@ -108,11 +108,14 @@ public class CaptureFrame extends JFrame {
 			public void receivePacket(Packet packet) {
 				String msg=packet.toString();
 				
-	             if(msg.contains("202.116.192.92")){//只查看和某IP地址有关的.
+	             if(msg.contains("202.116.193.38") || msg.contains("222.201.101.15")){//只查看和某IP地址有关的.
 	                 textArea.append(msg+"\n");
 					 try {
-					    String  submsg = new String(packet.data,0,packet.data.length,"utf-8");
-					    textArea.append("数据部分: \n"+submsg+"\n\n");
+					    String  submsg = new String(packet.data,0,packet.data.length,"gbk");
+//					    if(submsg.contains("20111003632")){
+					    	textArea.append("数据部分: \n"+submsg+"\n\n");
+//					    }
+					    
 					} catch (IOException ex) { }
 	             }
 			}
