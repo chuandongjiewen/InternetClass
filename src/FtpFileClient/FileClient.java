@@ -10,7 +10,7 @@ import java.io.*;
 import javax.swing.*;
 
 public class FileClient {
-  private String host="192.168.215.201";//222.201.101.15
+  private String host="192.168.221.74";//222.201.101.15
 //  private String host="localhost";
   private int port=8080;//8081
 
