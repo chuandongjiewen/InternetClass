@@ -8,8 +8,8 @@ import java.net.*;
 import java.io.*;
 
 public class HttpClient {
-  private String host="smtp.qq.com";//查询成绩 8080
-  private int port=25;//9009
+  private String host="";//查询成绩 8080
+  private int port=80;//9009
 
   public Socket socket;
   private PrintWriter pw;//用于字节和字符之间转换用.

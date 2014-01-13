@@ -1,8 +1,9 @@
 package FtpFileClient;
 
-import yincd.*;
 import java.io.*;
 import java.net.*;
+
+import Score.*;
 
 public class EchoServer {
   private int port=8008;

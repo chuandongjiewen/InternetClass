@@ -4,12 +4,13 @@ package socketUdp;
  *
  * @author Administrator
  */
-import yincd.*;
 
 import java.net.*;
 import java.io.*;
 
 import javax.swing.*;
+
+import Score.*;
 
 public class EchoUDPClient {
 	  private String remoteHost="222.201.101.15";// or localhost"222.201.101.15

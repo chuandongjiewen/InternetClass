@@ -51,12 +51,10 @@ public class MailClientJFrame extends JFrame {
 			@Override
 			public void run(){
 				try {
-					while(true){
-						receiveMsg += echoClient.receive();
-						if(receiveMsg != ""){
+					while((receiveMsg = echoClient.receive()) != null){
+						if(!receiveMsg.equals("")){
 							textArea.append(receiveMsg + "\n");
-//							System.out.println("client-->"+receiveMsg);
-							receiveMsg = "";
+							textArea.setCaretPosition(textArea.getText().length());
 						}
 						if (receiveMsg.contains("bye".subSequence(0, 2))){
 		                    break;
@@ -77,8 +75,8 @@ public class MailClientJFrame extends JFrame {
 		if (sendMsg != "") {
 			try {
 				if(sendMsg.contains("auth login")){
-					String qq = "670467728";
-					String password = "qm569282yy53254";
+					String qq = "435767318";
+					String password = "yin543211";
 					qq = BASE64Encoder.encode(qq.getBytes());
 					password = BASE64Encoder.encode(password.getBytes());
 					String temp = "auth login " + qq+"\n" +password;

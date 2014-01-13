@@ -22,13 +22,16 @@ public class UdpMysql {
 			String dbUser = "myroot";
 			String dbPwd = "my999";
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+			
 			DatabaseMetaData metaData = conn.getMetaData();
+			//获得表的集合
 			ResultSet resultSet = metaData.getTables(null, null, null, new String[]{"TABLE"});
+			//获得表的属性集合
 			ResultSetMetaData rmd = resultSet.getMetaData();
 			for (int i = 1; i <= rmd.getColumnCount(); i++) {
 				System.out.println(rmd.getColumnLabel(i));
 			}
-		
+			
 			while(resultSet.next()){
 				System.out.println(resultSet.getObject("TABLE_NAME"));
 				resultSet.getObject("TABLE_NAME");

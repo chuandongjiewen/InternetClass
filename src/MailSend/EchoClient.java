@@ -8,7 +8,7 @@ import java.net.*;
 import java.io.*;
 
 public class EchoClient {
-  private String host="smtp.qq.com";//查询成绩 8080
+  private String host="smtp.exmail.qq.com";//查询成绩 8080
   private int port=25;//9009
 
   public Socket socket;

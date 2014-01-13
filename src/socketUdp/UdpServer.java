@@ -1,9 +1,10 @@
 package socketUdp;
 
-import yincd.*;
 
 import java.io.*;
 import java.net.*;
+
+import Score.*;
 
 public class UdpServer {
   private int port=8880;

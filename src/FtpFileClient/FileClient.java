@@ -4,10 +4,11 @@ package FtpFileClient;
  *
  * @author Administrator
  */
-import yincd.*;
 import java.net.*;
 import java.io.*;
 import javax.swing.*;
+
+import Score.*;
 
 public class FileClient {
   private String host="192.168.221.74";//222.201.101.15
